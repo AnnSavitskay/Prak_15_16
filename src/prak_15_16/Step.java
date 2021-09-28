@@ -11,11 +11,10 @@ public class Step implements Runnable{
     {
         while(true)
         {
-            synchronized (Robot.monitor) {
+            synchronized (which_leg) {
                 System.out.println(which_leg);
-                Robot.monitor.notify();
                 try {
-                    Robot.monitor.wait();
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
