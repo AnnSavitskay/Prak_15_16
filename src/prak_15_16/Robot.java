@@ -1,7 +1,6 @@
 package prak_15_16;
 
 public class Robot {
-    public static final Object monitor = new Object();
     public Step leg_left = new Step("LEFT");
     public Step leg_right = new Step("RIGHT");
 
