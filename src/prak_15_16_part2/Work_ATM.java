@@ -23,7 +23,11 @@ public class Work_ATM implements Runnable{
                     Terminal.monitor.notify();
                     this.Add();
                     this.Subtract();
-                    if(person.getBalance() < 0) throw new Exception();
+                    if(person.getBalance() < 0)
+                    {
+                        person.setBalance(0);
+                        throw new Exception();
+                    }
                     System.out.println(Thread.currentThread().getName() + " " + person.toString());
 
                     Terminal.monitor.wait();
