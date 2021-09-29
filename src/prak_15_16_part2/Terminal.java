@@ -1,7 +1,6 @@
 package prak_15_16_part2;
 
 public class Terminal {
-    public static Object monitor = new Object();
     public Person person = new Person("John", 20000);
     public Work_ATM work_atm_first = new Work_ATM(2000,3000, person, 300);
     public Work_ATM work_atm_second = new Work_ATM(1500, 500, person, 200);
