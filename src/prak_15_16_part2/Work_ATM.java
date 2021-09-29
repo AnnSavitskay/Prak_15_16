@@ -20,22 +20,25 @@ public class Work_ATM implements Runnable{
             synchronized (Terminal.monitor)
             {
                 try {
+                    Terminal.monitor.notify();
                     this.Add();
                     this.Subtract();
                     if(person.getBalance() < 0) throw new Exception();
-                } catch (Exception e) {
-                    System.out.println("Balance is not enough");
-                }
+                    System.out.println(Thread.currentThread().getName() + " " + person.toString());
 
-                System.out.println(person.toString());
-                Terminal.monitor.notify();
-                try {
                     Terminal.monitor.wait();
                     Thread.sleep(sleep);
                 }
                 catch (InterruptedException e)
                 {
                     e.printStackTrace();
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+                catch (Exception e) {
+                    System.out.println("Balance is not enough");
+                    Thread.currentThread().interrupt();
+                    break;
                 }
             }
         }

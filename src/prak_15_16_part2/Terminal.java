@@ -13,6 +13,10 @@ public class Terminal {
         Thread ATM1 = new Thread(work_atm_first);
         Thread ATM2 = new Thread(work_atm_second);
         Thread ATM3 = new Thread(work_atm_third);
+        ATM1.setName("ATM1");
+        ATM2.setName("ATM2");
+        ATM3.setName("ATM3");
+
         ATM1.start();
         ATM2.start();
         ATM3.start();
